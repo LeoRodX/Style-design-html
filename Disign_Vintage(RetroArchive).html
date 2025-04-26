@@ -1,0 +1,169 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Ретро Стиль</title>
+    <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@700&family=Roboto+Slab&display=swap" rel="stylesheet">
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            background: url('data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAADIAAAAyCAMAAAAp4XiDAAAAUVBMVEWFhYWDg4N3d3dtbW17e3t1dXWBgYGHh4d5eXlzc3OLi4ubm5uVlZWPj4+NjY19fX2JiYl/f39ra2uRkZGZmZlpaWmXl5dvb29xcXGTk5NnZ2c8TV1mAAAAG3RSTlNAQEBAQEBAQEBAQEBAQEBAQEBAQEBAQEBAQEAvEOwtAAAFVklEQVR4XpWWB67c2BUFb3g557T/hRo9/WUMZHlgr4Bg8Z4qQgQJlHI4A8SzFVrapvmTF9O7dmYRFZ60YiBhajRCnxCjytheziaWCaciPhNHlyfhjcGql7CGtG/eD7eA79MP8HRwFSnTTVKHXYeFvzh7FRuRD2f91NvUrdTj2mv7qc6TNavHZZB1xAD9Andd9SG8Lvlhs7jnu9p9SdD4R9XT2H0B7XgIPw+N8nATQHBROg/0flJXJBTQHBROg/0flJXJBTQHBROg/0flJXJBTQHBROg/0flJXJBTQHBROg/0flJXJBTQHBROg/0flJXJBTQHBROg/0flJXJBTQHBROg/0flJXJBTQHBROg/0flJXJBTQHBROg/0flJXJBTQHBROg/0flJXJBTQHBROg/0flJXJBTQHBROg/0flJXJBTQHBROg/0flJXJBTQHRbOM8BAAAAAElFTkSuQmCC') #f5e6d3;
+            font-family: 'Roboto Slab', serif;
+            color: #3d2f1d;
+            min-height: 100vh;
+            display: flex;
+            flex-direction: column;
+        }
+
+        .header {
+            background: #d4af37;
+            padding: 15px;
+            box-shadow: 0 2px 5px rgba(0,0,0,0.3);
+            display: flex;
+            align-items: center;
+            border-bottom: 3px solid #8b6914;
+        }
+
+        .logo {
+            font-family: 'Playfair Display', serif;
+            font-size: 28px;
+            color: #654321;
+            text-shadow: 2px 2px 0 #fff;
+            letter-spacing: 2px;
+        }
+
+        .search-container {
+            flex-grow: 1;
+            margin: 0 20px;
+            display: flex;
+            max-width: 400px;
+        }
+
+        .search-input {
+            padding: 8px 15px;
+            border: 2px solid #8b6914;
+            border-radius: 20px 0 0 20px;
+            background: #fff8e1;
+            font-size: 16px;
+            width: 100%;
+            font-family: inherit;
+        }
+
+        .search-button {
+            background: #8b6914;
+            border: none;
+            padding: 8px 20px;
+            border-radius: 0 20px 20px 0;
+            color: white;
+            font-family: inherit;
+            cursor: pointer;
+            transition: background 0.3s;
+        }
+
+        .search-button:hover {
+            background: #654321;
+        }
+
+        .icons-container {
+            display: flex;
+            gap: 15px;
+        }
+
+        .icon {
+            width: 32px;
+            height: 32px;
+            filter: sepia(100%);
+            cursor: pointer;
+            transition: transform 0.3s;
+        }
+
+        .icon:hover {
+            transform: scale(1.1);
+        }
+
+        .main-content {
+            flex: 1;
+            padding: 30px;
+            margin: 20px auto;
+            max-width: 800px;
+            background: rgba(255,255,255,0.9);
+            border: 3px solid #8b6914;
+            box-shadow: 5px 5px 15px rgba(0,0,0,0.2);
+            position: relative;
+        }
+
+        .main-content::before {
+            content: '';
+            position: absolute;
+            top: -15px;
+            left: -15px;
+            right: -15px;
+            bottom: -15px;
+            background: url('data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAADIAAAAyCAMAAAAp4XiDAAAAM1BMVEXk5OTi4uLh4eHf39/d3d3c3Nza2trZ2dnY2NjX19fW1tbV1dXU1NTT09PS0tLR0dHQ0NCwyofxAAAACXBIWXMAAAsTAAALEwEAmpwYAAAA5klEQVR4Xu3WQQuCQBjA8X1z7oMfIYiiH6AQFEEQ9D1E9D3u7m632+3uNrt7sLz/YT0YHILw/9c/MMYYY4wxxhhjjDHGGPtPHkG4gxBC0CzLPM/7rMqyLMuyLMuyLMuyLMuyLMuy7F+5B9BJkqIodV23bftW0zRVVVVV9bHv+7qukyRJkuRxlmVZlmVZlmVZlmV/yj2AKzAMQ9M0T9M0TdM0TdM0TdM0TdM0TdM0TdM0TdM0TdM0TdM0TdM0TdM0TdM0TdM0TdM0TdM0TdM0TdM0/QUOAPjURn0NkAAAAABJRU5ErkJggg==');
+            opacity: 0.1;
+            z-index: -1;
+        }
+
+        .content-title {
+            font-family: 'Playfair Display', serif;
+            font-size: 36px;
+            color: #8b6914;
+            margin-bottom: 20px;
+            border-bottom: 2px dashed #8b6914;
+            padding-bottom: 10px;
+        }
+
+        .content-text {
+            font-size: 18px;
+            line-height: 1.6;
+            color: #4d3a1f;
+            text-align: justify;
+        }
+
+        .footer {
+            background: #d4af37;
+            padding: 20px;
+            text-align: center;
+            color: #654321;
+            border-top: 3px solid #8b6914;
+            margin-top: auto;
+        }
+    </style>
+</head>
+<body>
+    <header class="header">
+        <div class="logo">RetroArchive</div>
+        
+        <div class="search-container">
+            <input type="text" class="search-input" placeholder="Поиск по архиву...">
+            <button class="search-button">Найти</button>
+        </div>
+
+        <div class="icons-container">
+            <img src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAACAAAAAgCAYAAABzenr0AAAABmJLR0QA/wD/AP+gvaeTAAAAXElEQVRYhe3OMQqAMAyF4V81uHdxc3BwEe9/ExcXkXQQLu0g4lDQ5kH4oNDkQSGEEEIIIYQQQgghhDzJhLdE0A8Y8AYc8NnW8q0K3F6BAx5r+VYFdq/AAQghhBBCCCGEEEII+QEPUxUuAJ9Z8wAAAABJRU5ErkJggg==" class="icon" alt="Справка">
+            <img src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAACAAAAAgCAYAAABzenr0AAAABmJLR0QA/wD/AP+gvaeTAAAAwElEQVRYhe2UMQ6DMAxFv4IqVpYqJ+AC3ICr9BrcpUeAhQsgJKQqQ5Qh6hB4EhJbBmyHqKryJNuxnR+2HQAAAAAAAAAA4D+JQD6X0nO8nH+ygCPg8gHwRlTZz9v1/ikBAh5DfRcBZ8A9wHcR8ADcA3wXAW/APcB3EfAB3AN8F4FfgHuA7yJQA9wDfBcBAnAP8F0EWoB7gO8i0APcA3wXgRHgHuC7CEwB9wDfReAPcA/wXQRWgHuA7yKwAdwDfBeBHeAe4LsI7AH3AN9F4AC4B/guAkfAPcB3EbgA7gHfL3ABWp2n3UOe+1kAAAAASUVORK5CYII=" class="icon" alt="Профиль">
+        </div>
+    </header>
+
+    <main class="main-content">
+        <h1 class="content-title">Добро пожаловать в архив</h1>
+        <p class="content-text">
+            Здесь собраны уникальные материалы прошлых десятилетий. 
+            Погрузитесь в атмосферу винтажной эстетики, исследуя 
+            оцифрованные документы, фотографии и артефакты эпохи. 
+            Наша коллекция постоянно пополняется редкими экземплярами, 
+            сохраняющими дух времени.
+        </p>
+    </main>
+
+    <footer class="footer">
+        © 1987 RetroArchive. Все права сохранены
+    </footer>
+</body>
+</html>

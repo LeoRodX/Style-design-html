@@ -1,0 +1,188 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Эскизный стиль</title>
+    <link href="https://fonts.googleapis.com/css2?family=Caveat:wght@400;700&family=Gochi+Hand&display=swap" rel="stylesheet">
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: 'Caveat', cursive;
+        }
+
+        body {
+            background: #fff5e6 url('data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAADIAAAAyCAMAAAAp4XiDAAAAUVBMVEWFhYWDg4N3d3dtbW17e3t1dXWBgYGHh4d5eXlzc3OLi4ubm5uVlZWPj4+NjY19fX2JiYl/f39ra2uRkZGZmZlpaWmXl5dvb29xcXGTk5NnZ2c8TV1mAAAAG3RSTlNAQEBAQEBAQEBAQEBAQEBAQEBAQEBAQEBAQEAvEOwtAAAFVklEQVR4XpWWB67c2BUFb3g557T/hRo9/WUMZHlgr4Bg8Z4qQgQJlHI4A8SzFVrapvmTF9O7dmYRFZ60YiBhajRCnxCjytheziaWCaciPhNHlyfhjcGql7CGtG/eD7eA79MP8HRwFSnTTVKHXYeFvzh7FRuRD2f91NvUrdTj2mv7qc6TNavHZZB1xAD9Andd9SG8Lvlhs7jnu9p9SdD4R9XT2H0B7XgIPw+N8nATQHBROg/0flJXJBTQHBROg/0flJXJBTQHBROg/0flJXJBTQHBROg/0flJXJBTQHBROg/0flJXJBTQHBROg/0flJXJBTQHBROg/0flJXJBTQHBROg/0flJXJBTQHBROg/0flJXJBTQHBROg/0flJXJBTQHBROg/0flJXJBTQHBROg/0flJXJBTQHBROg/0flJXJBTQHBROg/0flJXJBTQHBROg/0flJXJBTQHRbOM8BAAAAAElFTkSuQmCC');
+            min-height: 100vh;
+            color: #3d3d3d;
+        }
+
+        .container {
+            max-width: 800px;
+            margin: 0 auto;
+            padding: 2rem;
+        }
+
+        .sketch-border {
+            border: 3px solid #333;
+            border-radius: 15px;
+            position: relative;
+            background: white;
+            box-shadow: 8px 8px 0 rgba(0,0,0,0.1);
+            margin: 2rem 0;
+            padding: 2rem;
+        }
+
+        .sketch-border::before {
+            content: '';
+            position: absolute;
+            top: -15px;
+            left: -15px;
+            right: -15px;
+            bottom: -15px;
+            border: 2px dashed #666;
+            border-radius: 25px;
+            z-index: -1;
+        }
+
+        h1 {
+            font-family: 'Gochi Hand', cursive;
+            font-size: 3.5rem;
+            text-align: center;
+            margin-bottom: 2rem;
+            transform: rotate(-3deg);
+            text-shadow: 2px 2px 0 #fff, 4px 4px 0 rgba(0,0,0,0.1);
+        }
+
+        .handwritten-text {
+            font-size: 1.8rem;
+            line-height: 1.6;
+            margin-bottom: 1.5rem;
+        }
+
+        .sketch-button {
+            background: #ffeb3b;
+            border: 3px solid #333;
+            padding: 1rem 2rem;
+            font-size: 1.5rem;
+            cursor: pointer;
+            border-radius: 30px;
+            transform: rotate(-1deg);
+            transition: all 0.3s ease;
+            margin: 1rem;
+            box-shadow: 4px 4px 0 rgba(0,0,0,0.1);
+        }
+
+        .sketch-button:hover {
+            transform: rotate(2deg) scale(1.05);
+            box-shadow: 6px 6px 0 rgba(0,0,0,0.2);
+        }
+
+        .doodle-list {
+            list-style: none;
+            padding-left: 2rem;
+        }
+
+        .doodle-list li {
+            margin: 1rem 0;
+            font-size: 1.6rem;
+            position: relative;
+        }
+
+        .doodle-list li::before {
+            content: '✎';
+            position: absolute;
+            left: -2rem;
+            top: -0.2rem;
+        }
+
+        .sketch-input {
+            border: 2px dashed #666;
+            padding: 1rem;
+            font-size: 1.4rem;
+            background: transparent;
+            margin: 1rem 0;
+            width: 100%;
+            border-radius: 10px;
+            font-family: 'Gochi Hand', cursive;
+        }
+
+        .sketch-input:focus {
+            outline: none;
+            border-style: solid;
+            background: rgba(255,235,59,0.2);
+        }
+
+        .watercolor-box {
+            background: linear-gradient(45deg, #ff9a9e, #fad0c4, #fad0c4, #a1c4fd);
+            border-radius: 20px;
+            padding: 2rem;
+            margin: 2rem 0;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .watercolor-box::after {
+            content: '';
+            position: absolute;
+            top: -50%;
+            left: -50%;
+            right: -50%;
+            bottom: -50%;
+            background: url('data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAADIAAAAyCAMAAAAp4XiDAAAAM1BMVEXk5OTi4uLh4eHf39/d3d3c3Nza2trZ2dnY2NjX19fW1tbV1dXU1NTT09PS0tLR0dHQ0NCwyofxAAAACXBIWXMAAAsTAAALEwEAmpwYAAAA5klEQVR4Xu3WQQuCQBjA8X1z7oMfIYiiH6AQFEEQ9D1E9D3u7m632+3uNrt7sLz/YT0YHILw/9c/MMYYY4wxxhhjjDHGGPtPHkG4gxBC0CzLPM/7rMqyLMuyLMuyLMuyLMuyLPtX7gF0kqQoSl3Xbdu+1TRNVVVVVX3s+76u6yRJkiR5nGVZlmVZlmVZlmVZ9rfcA7gCwzA0TfM0TdM0TdM0TdM0TdM0TdM0TdM0TdM0TdM0TdM0TdM0TdM0TdM0TdM0TdM0TdM0TdM0TdM0TdP0D3sD4JxEC1ZRlpkAAAAASUVORK5CYII=');
+            opacity: 0.1;
+            transform: rotate(15deg);
+        }
+
+        @media (max-width: 768px) {
+            .container {
+                padding: 1rem;
+            }
+            
+            h1 {
+                font-size: 2.5rem;
+            }
+            
+            .sketch-border {
+                padding: 1rem;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h1>Мой Эскизный Сайт</h1>
+
+        <div class="sketch-border">
+            <p class="handwritten-text">Привет! Это мой творческий уголок, где идеи обретают форму через карандашные наброски и акварельные мазки.</p>
+            
+            <div class="watercolor-box">
+                <h2>Сегодняшние задачи:</h2>
+                <ul class="doodle-list">
+                    <li>Нарисовать новый эскиз</li>
+                    <li>Раскрасить акварелью</li>
+                    <li>Добавить заметки</li>
+                    <li>Поделиться с друзьями</li>
+                </ul>
+            </div>
+
+            <input type="text" class="sketch-input" placeholder="Введите вашу идею...">
+
+            <button class="sketch-button">Нарисовать!</button>
+            <button class="sketch-button" style="background: #ff9e9e">Очистить</button>
+        </div>
+
+        <div class="sketch-border" style="margin-top: 3rem">
+            <p class="handwritten-text">Советы для творчества:</p>
+            <ul class="doodle-list">
+                <li>Используй разные материалы</li>
+                <li>Экспериментируй с цветами</li>
+                <li>Не бойся ошибок</li>
+                <li>Делай быстрые наброски</li>
+            </ul>
+        </div>
+    </div>
+</body>
+</html>

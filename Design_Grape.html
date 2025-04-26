@@ -1,0 +1,180 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Виноград</title>
+    <style>
+        :root {
+            --виноградный: #6C3082;
+            --сливовый: #4A2545;
+            --сиреневый: #B399D4;
+            --фон: #FAF7FC;
+            --текст: #2D1E2F;
+            --акцент: #E6C229;
+        }
+        
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            background-color: var(--фон);
+            color: var(--текст);
+            margin: 0;
+            padding: 15px;
+            max-width: 100%;
+            box-sizing: border-box;
+            line-height: 1.5;
+        }
+        
+        .container {
+            max-width: 100%;
+            margin: 0 auto;
+        }
+        
+        h1 {
+            color: var(--сливовый);
+            text-align: center;
+            font-size: 26px;
+            margin-bottom: 25px;
+            padding-bottom: 10px;
+            border-bottom: 2px solid var(--сиреневый);
+        }
+        
+        .form-group {
+            margin-bottom: 18px;
+        }
+        
+        label {
+            display: block;
+            margin-bottom: 6px;
+            font-weight: 600;
+            color: var(--виноградный);
+        }
+        
+        input[type="text"],
+        select {
+            width: 100%;
+            padding: 12px;
+            border: 2px solid var(--сиреневый);
+            border-radius: 6px;
+            background-color: white;
+            box-sizing: border-box;
+            font-size: 16px;
+            transition: border-color 0.3s;
+        }
+        
+        input[type="text"]:focus,
+        select:focus {
+            border-color: var(--виноградный);
+            outline: none;
+        }
+        
+        input[type="text"]::placeholder {
+            color: #AAA;
+            font-style: italic;
+        }
+        
+        button {
+            background: linear-gradient(to bottom, var(--виноградный), var(--сливовый));
+            color: white;
+            border: none;
+            padding: 14px 20px;
+            border-radius: 6px;
+            cursor: pointer;
+            font-size: 17px;
+            width: 100%;
+            margin-top: 15px;
+            transition: all 0.3s;
+            box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+        }
+        
+        button:hover {
+            background: linear-gradient(to bottom, var(--сливовый), var(--виноградный));
+            box-shadow: 0 4px 8px rgba(0,0,0,0.15);
+        }
+        
+        .checkbox-group, .radio-group {
+            margin: 18px 0;
+            padding: 12px;
+            background-color: rgba(179, 153, 212, 0.1);
+            border-radius: 6px;
+        }
+        
+        .checkbox-item, .radio-item {
+            margin-bottom: 12px;
+            display: flex;
+            align-items: center;
+        }
+        
+        input[type="checkbox"], input[type="radio"] {
+            margin-right: 12px;
+            width: 18px;
+            height: 18px;
+            accent-color: var(--виноградный);
+        }
+        
+        .hint {
+            color: #777;
+            font-size: 13px;
+            margin-top: 4px;
+            font-style: italic;
+            margin-left: 30px;
+        }
+        
+        select {
+            appearance: none;
+            background-image: url("data:image/svg+xml;charset=UTF-8,%3csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' fill='%236C3082'%3e%3cpath d='M7 10l5 5 5-5z'/%3e%3c/svg%3e");
+            background-repeat: no-repeat;
+            background-position: right 10px center;
+            background-size: 16px;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h1>Виноградное приложение</h1>
+        
+        <div class="form-group">
+            <label for="username">Имя пользователя</label>
+            <input type="text" id="username" placeholder="Введите ваше имя">
+            <div class="hint">Пример: Иван Иванов</div>
+        </div>
+        
+        <div class="form-group">
+            <label for="fruit">Выберите сорт винограда</label>
+            <select id="fruit">
+                <option value="" disabled selected>Выберите из списка</option>
+                <option value="red">Красный виноград</option>
+                <option value="green">Зелёный виноград</option>
+                <option value="black">Чёрный виноград</option>
+                <option value="kishmish">Кишмиш</option>
+            </select>
+            <div class="hint">Выберите ваш любимый сорт</div>
+        </div>
+        
+        <div class="checkbox-group">
+            <label style="margin-bottom: 12px;">Дополнительные опции</label>
+            <div class="checkbox-item">
+                <input type="checkbox" id="option1" name="option1">
+                <label for="option1">Получать уведомления</label>
+                <div class="hint">Отметьте для получения сообщений</div>
+            </div>
+        </div>
+        
+        <div class="radio-group">
+            <label style="margin-bottom: 12px;">Предпочтения</label>
+            <div class="radio-item">
+                <input type="radio" id="choice1" name="choice" value="1">
+                <label for="choice1">С косточками</label>
+                <div class="hint">Традиционные сорта</div>
+            </div>
+            <div class="radio-item">
+                <input type="radio" id="choice2" name="choice" value="2">
+                <label for="choice2">Без косточек</label>
+                <div class="hint">Современные сорта</div>
+            </div>
+        </div>
+        
+        <button type="submit">Сохранить выбор</button>
+    </div>
+</body>
+</html>

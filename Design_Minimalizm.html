@@ -1,0 +1,170 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Минимализм</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: 'Helvetica Neue', sans-serif;
+        }
+
+        body {
+            background: #ffffff;
+            color: #2d2d2d;
+            line-height: 1.6;
+            min-height: 100vh;
+            display: flex;
+            flex-direction: column;
+        }
+
+        /* Шапка */
+        .header {
+            padding: 1.5rem;
+            border-bottom: 1px solid #eee;
+        }
+
+        .nav {
+            max-width: 1200px;
+            margin: 0 auto;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .logo {
+            font-size: 1.8rem;
+            font-weight: 300;
+            letter-spacing: -1px;
+        }
+
+        .menu {
+            display: flex;
+            gap: 2rem;
+        }
+
+        .menu-link {
+            text-decoration: none;
+            color: inherit;
+            font-weight: 300;
+            transition: opacity 0.2s;
+        }
+
+        .menu-link:hover {
+            opacity: 0.7;
+        }
+
+        /* Основной контент */
+        .main {
+            flex: 1;
+            padding: 4rem 1.5rem;
+            max-width: 800px;
+            margin: 0 auto;
+            width: 100%;
+        }
+
+        .title {
+            font-size: 3rem;
+            font-weight: 300;
+            margin-bottom: 2rem;
+            line-height: 1.2;
+        }
+
+        .text {
+            font-size: 1.1rem;
+            margin-bottom: 2rem;
+            color: #555;
+            font-weight: 300;
+        }
+
+        /* Формы */
+        .input-group {
+            margin-bottom: 1.5rem;
+        }
+
+        .input {
+            width: 100%;
+            padding: 1rem;
+            border: 1px solid #eee;
+            font-size: 1rem;
+            transition: border-color 0.2s;
+        }
+
+        .input:focus {
+            outline: none;
+            border-color: #ccc;
+        }
+
+        .button {
+            background: #2d2d2d;
+            color: white;
+            border: none;
+            padding: 1rem 2rem;
+            font-size: 1rem;
+            cursor: pointer;
+            transition: opacity 0.2s;
+        }
+
+        .button:hover {
+            opacity: 0.9;
+        }
+
+        /* Карточка */
+        .card {
+            background: #f9f9f9;
+            padding: 2rem;
+            margin: 2rem 0;
+        }
+
+        /* Футер */
+        .footer {
+            text-align: center;
+            padding: 2rem;
+            color: #777;
+            font-weight: 300;
+            border-top: 1px solid #eee;
+        }
+    </style>
+</head>
+<body>
+    <header class="header">
+        <nav class="nav">
+            <div class="logo">Minimal</div>
+            <div class="menu">
+                <a href="#" class="menu-link">О нас</a>
+                <a href="#" class="menu-link">Проекты</a>
+                <a href="#" class="menu-link">Контакты</a>
+            </div>
+        </nav>
+    </header>
+
+    <main class="main">
+        <h1 class="title">Простота — высшая степень сложности</h1>
+        
+        <div class="card">
+            <p class="text">
+                Мы создаем цифровые продукты, сочетающие в себе элегантность 
+                и функциональность. Каждый элемент тщательно продуман 
+                для достижения идеального баланса.
+            </p>
+        </div>
+
+        <form>
+            <div class="input-group">
+                <input type="text" class="input" placeholder="Ваше имя">
+            </div>
+            <div class="input-group">
+                <input type="email" class="input" placeholder="Электронная почта">
+            </div>
+            <button type="submit" class="button">Отправить</button>
+        </form>
+    </main>
+
+    <footer class="footer">
+        <p>© 2024 Minimal. Все права защищены.</p>
+    </footer>
+</body>
+</html>

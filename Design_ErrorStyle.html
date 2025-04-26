@@ -1,0 +1,280 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Google Sheets-стиль</title>
+    <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;500&display=swap" rel="stylesheet>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: 'Roboto', sans-serif;
+        }
+
+        body {
+            background: #f8f9fa;
+            min-height: 100vh;
+            display: flex;
+            flex-direction: column;
+        }
+
+        .header {
+            background: white;
+            padding: 12px 16px;
+            box-shadow: 0 1px 2px rgba(0,0,0,0.1);
+            display: flex;
+            align-items: center;
+            gap: 15px;
+        }
+
+        .logo {
+            font-size: 22px;
+            color: #5f6368;
+            font-weight: 500;
+            white-space: nowrap;
+        }
+
+        .search-container {
+            flex-grow: 1;
+            display: flex;
+            background: #f1f3f4;
+            border-radius: 8px;
+            padding: 8px;
+            align-items: center;
+        }
+
+        .search-input {
+            border: none;
+            background: transparent;
+            padding: 4px 8px;
+            font-size: 16px;
+            width: 100%;
+            outline: none;
+        }
+
+        .icon-button {
+            color: #5f6368;
+            padding: 8px;
+            border-radius: 50%;
+            cursor: pointer;
+            transition: background 0.2s;
+        }
+
+        .icon-button:hover {
+            background: rgba(0,0,0,0.04);
+        }
+
+        .main-content {
+            flex-grow: 1;
+            padding: 24px 16px;
+            max-width: 800px;
+            margin: 0 auto;
+            width: 100%;
+        }
+
+        .content-block {
+            background: white;
+            border-radius: 8px;
+            padding: 20px;
+            box-shadow: 0 1px 2px rgba(0,0,0,0.1);
+            margin-bottom: 20px;
+        }
+
+        .content-title {
+            font-size: 20px;
+            color: #202124;
+            margin-bottom: 16px;
+            font-weight: 500;
+        }
+
+        .content-text {
+            font-size: 16px;
+            color: #3c4043;
+            line-height: 1.5;
+        }
+
+        .footer {
+            background: white;
+            padding: 16px;
+            text-align: center;
+            color: #5f6368;
+            font-size: 14px;
+            border-top: 1px solid #dadce0;
+        }
+
+        .form-group {
+            margin-bottom: 20px;
+        }
+
+        .input-label {
+            display: block;
+            color: #5f6368;
+            font-size: 14px;
+            margin-bottom: 8px;
+        }
+
+        .text-input {
+            width: 100%;
+            padding: 12px;
+            border: 1px solid #dadce0;
+            border-radius: 4px;
+            font-size: 16px;
+            transition: border-color 0.2s;
+        }
+
+        .text-input:focus {
+            border-color: #1a73e8;
+            outline: none;
+        }
+
+        .select-wrapper {
+            position: relative;
+            width: 100%;
+        }
+
+        .custom-select {
+            appearance: none;
+            width: 100%;
+            padding: 12px;
+            border: 1px solid #dadce0;
+            border-radius: 4px;
+            background: white;
+            font-size: 16px;
+            color: #202124;
+        }
+
+        .select-arrow {
+            position: absolute;
+            right: 12px;
+            top: 50%;
+            transform: translateY(-50%);
+            pointer-events: none;
+            color: #5f6368;
+        }
+
+        .button {
+            background: #1a73e8;
+            color: white;
+            border: none;
+            padding: 12px 24px;
+            border-radius: 4px;
+            font-size: 14px;
+            font-weight: 500;
+            cursor: pointer;
+            transition: background 0.2s;
+        }
+
+        .button:hover {
+            background: #1557b0;
+        }
+
+        .checkbox-group, .radio-group {
+            display: flex;
+            flex-direction: column;
+            gap: 12px;
+        }
+
+        .checkbox-label, .radio-label {
+            display: flex;
+            align-items: center;
+            gap: 8px;
+            color: #3c4043;
+        }
+
+        input[type="checkbox"], input[type="radio"] {
+            width: 18px;
+            height: 18px;
+            accent-color: #1a73e8;
+        }
+    </style>
+</head>
+<body>
+    <header class="header">
+        <div class="logo">Мои Документы</div>
+        <div class="search-container">
+            <input type="text" class="search-input" placeholder="Поиск...">
+            <span class="material-icons">search</span>
+        </div>
+        <div class="icon-button">
+            <span class="material-icons">help_outline</span>
+        </div>
+        <div class="icon-button">
+            <span class="material-icons">account_circle</span>
+        </div>
+    </header>
+
+    <main class="main-content">
+        <div class="content-block">
+            <h1 class="content-title">Добро пожаловать</h1>
+            <p class="content-text">
+                Здесь вы можете создавать новые документы, работать с существующими файлами 
+                и организовывать свою работу в удобном формате.
+            </p>
+        </div>
+        
+        <div class="content-block">
+            <h2 class="content-title">Последние файлы</h2>
+            <p class="content-text">
+                Отчет за май 2024<br>
+                Презентация проекта<br>
+                Финансовый план
+            </p>
+        </div>
+
+        <div class="content-block">
+            <h2 class="content-title">Форма управления</h2>
+            
+            <div class="form-group">
+                <label class="input-label">Текстовое поле:</label>
+                <input type="text" class="text-input" placeholder="Введите текст">
+            </div>
+
+            <div class="form-group">
+                <label class="input-label">Выпадающий список:</label>
+                <div class="select-wrapper">
+                    <select class="custom-select">
+                        <option value="">Выберите вариант</option>
+                        <option>Вариант 1</option>
+                        <option>Вариант 2</option>
+                        <option>Вариант 3</option>
+                    </select>
+                    <span class="material-icons select-arrow">arrow_drop_down</span>
+                </div>
+            </div>
+
+            <div class="form-group">
+                <label class="input-label">Чекбоксы:</label>
+                <div class="checkbox-group">
+                    <label class="checkbox-label">
+                        <input type="checkbox"> Опция 1
+                    </label>
+                    <label class="checkbox-label">
+                        <input type="checkbox"> Опция 2
+                    </label>
+                </div>
+            </div>
+
+            <div class="form-group">
+                <label class="input-label">Радио-кнопки:</label>
+                <div class="radio-group">
+                    <label class="radio-label">
+                        <input type="radio" name="radio-group"> Вариант А
+                    </label>
+                    <label class="radio-label">
+                        <input type="radio" name="radio-group"> Вариант Б
+                    </label>
+                </div>
+            </div>
+
+            <button class="button">Сохранить изменения</button>
+        </div>
+    </main>
+
+    <footer class="footer">
+        © 2024 Мои Документы. Все права защищены.
+    </footer>
+</body>
+</html>

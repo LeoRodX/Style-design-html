@@ -1,0 +1,190 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Formula 1 Демонстратор</title>
+    <style>
+        :root {
+            --f1-dark-blue: #06004E;
+            --f1-red: #E10600;
+            --f1-gold: #C6A961;
+            --f1-light-gray: #F1F1F1;
+        }
+        
+        body {
+            font-family: 'Arial', sans-serif;
+            margin: 0;
+            padding: 0;
+            background-color: var(--f1-light-gray);
+            color: #333;
+        }
+        
+        .container {
+            max-width: 100%;
+            padding: 15px;
+            box-sizing: border-box;
+        }
+        
+        .f1-header {
+            background-color: var(--f1-dark-blue);
+            color: white;
+            padding: 15px 0;
+            text-align: center;
+            margin-bottom: 20px;
+            border-bottom: 3px solid var(--f1-red);
+        }
+        
+        .f1-title {
+            margin: 0;
+            font-size: 1.5rem;
+        }
+        
+        .f1-form {
+            background-color: white;
+            border-radius: 5px;
+            padding: 20px;
+            box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+        }
+        
+        .form-group {
+            margin-bottom: 20px;
+        }
+        
+        label {
+            display: block;
+            margin-bottom: 5px;
+            font-weight: bold;
+            color: var(--f1-dark-blue);
+        }
+        
+        input[type="text"],
+        input[type="email"],
+        input[type="password"],
+        select,
+        textarea {
+            width: 100%;
+            padding: 10px;
+            border: 1px solid #ddd;
+            border-radius: 4px;
+            box-sizing: border-box;
+            font-size: 16px;
+            background-color: #f9f9f9;
+        }
+        
+        input::placeholder,
+        select:invalid {
+            color: #999;
+            font-style: italic;
+        }
+        
+        .f1-button {
+            background-color: var(--f1-red);
+            color: white;
+            border: none;
+            padding: 12px 20px;
+            border-radius: 4px;
+            cursor: pointer;
+            font-size: 16px;
+            font-weight: bold;
+            width: 100%;
+            transition: background-color 0.3s;
+        }
+        
+        .f1-button:hover {
+            background-color: #C00500;
+        }
+        
+        .checkbox-group,
+        .radio-group {
+            margin: 15px 0;
+        }
+        
+        .checkbox-label,
+        .radio-label {
+            display: flex;
+            align-items: center;
+            margin-bottom: 10px;
+            cursor: pointer;
+        }
+        
+        .checkbox-label input,
+        .radio-label input {
+            margin-right: 10px;
+        }
+        
+        .f1-footer {
+            text-align: center;
+            margin-top: 30px;
+            padding: 15px;
+            color: #666;
+            font-size: 0.9rem;
+        }
+        
+        .f1-gold-text {
+            color: var(--f1-gold);
+        }
+        
+        .f1-divider {
+            height: 2px;
+            background: linear-gradient(to right, var(--f1-dark-blue), var(--f1-red), var(--f1-gold));
+            margin: 20px 0;
+            border: none;
+        }
+    </style>
+</head>
+<body>
+    <div class="f1-header">
+        <h1 class="f1-title">FORMULA <span class="f1-gold-text">1</span> ДЕМОНСТРАТОР</h1>
+    </div>
+    
+    <div class="container">
+        <form class="f1-form">
+            <div class="form-group">
+                <label for="username">Имя пользователя</label>
+                <input type="text" id="username" name="username" placeholder="Введите ваше имя">
+            </div>
+            
+            <div class="form-group">
+                <label for="team">Команда</label>
+                <select id="team" name="team" required>
+                    <option value="" disabled selected>Выберите команду</option>
+                    <option value="mercedes">Mercedes</option>
+                    <option value="ferrari">Ferrari</option>
+                    <option value="redbull">Red Bull Racing</option>
+                    <option value="mclaren">McLaren</option>
+                    <option value="alpine">Alpine</option>
+                </select>
+            </div>
+            
+            <hr class="f1-divider">
+            
+            <div class="form-group checkbox-group">
+                <label>Настройки уведомлений</label>
+                <div class="checkbox-label">
+                    <input type="checkbox" id="notifications" name="notifications">
+                    <label for="notifications">Получать уведомления о гонках</label>
+                </div>
+            </div>
+            
+            <div class="form-group radio-group">
+                <label>Тип подписки</label>
+                <div class="radio-label">
+                    <input type="radio" id="free" name="subscription" value="free">
+                    <label for="free">Бесплатная (ограниченный доступ)</label>
+                </div>
+                <div class="radio-label">
+                    <input type="radio" id="premium" name="subscription" value="premium">
+                    <label for="premium">Премиум (полный доступ)</label>
+                </div>
+            </div>
+            
+            <button type="submit" class="f1-button">ПОДТВЕРДИТЬ</button>
+        </form>
+    </div>
+    
+    <div class="f1-footer">
+        © 2023 Formula 1 Демонстратор | Все права защищены
+    </div>
+</body>
+</html>

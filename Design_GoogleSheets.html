@@ -1,0 +1,262 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Google Sheets стиль</title>
+    <link href="https://fonts.googleapis.com/icon?family=Material+Icons|Material+Icons+Outlined" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;500;700&display=swap" rel="stylesheet">
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: 'Roboto', Arial, sans-serif;
+        }
+
+        body {
+            background: #f3f4f6;
+            min-height: 100vh;
+            display: flex;
+            flex-direction: column;
+        }
+
+        /* Шапка как в Google Sheets */
+        .header {
+            background: #fff;
+            padding: 8px 16px;
+            border-bottom: 1px solid #e0e0e0;
+            display: flex;
+            align-items: center;
+            gap: 15px;
+        }
+
+        .logo-container {
+            display: flex;
+            align-items: center;
+            gap: 12px;
+        }
+
+        .logo {
+            width: 40px;
+            height: 40px;
+            background: url('data:image/svg+xml;utf8,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path fill="%234285F4" d="M14 17H7v-2h7v2zm3-4H7v-2h10v2zm0-4H7V7h10v2z"/><path fill="%2334A853" d="M19 3H5c-1.1 0-2 .9-2 2v14c0 1.1.9 2 2 2h14c1.1 0 2-.9 2-2V5c0-1.1-.9-2-2-2zm0 16H5V5h14v14z"/></svg>') center no-repeat;
+        }
+
+        .file-info {
+            display: flex;
+            flex-direction: column;
+        }
+
+        .file-name {
+            font-size: 14px;
+            color: #202124;
+            font-weight: 500;
+        }
+
+        .menu-bar {
+            flex-grow: 1;
+            display: flex;
+            gap: 8px;
+            padding-left: 20px;
+        }
+
+        .menu-item {
+            padding: 8px 12px;
+            color: #5f6368;
+            font-size: 14px;
+            border-radius: 4px;
+            cursor: pointer;
+            transition: background 0.2s;
+        }
+
+        .menu-item:hover {
+            background: #f1f3f4;
+        }
+
+        /* Панель инструментов */
+        .toolbar {
+            background: #fff;
+            padding: 8px 16px;
+            border-bottom: 1px solid #e0e0e0;
+            display: flex;
+            gap: 12px;
+            flex-wrap: wrap;
+        }
+
+        .tool-button {
+            padding: 6px 12px;
+            border-radius: 4px;
+            border: 1px solid transparent;
+            background: none;
+            color: #5f6368;
+            display: flex;
+            align-items: center;
+            gap: 6px;
+            cursor: pointer;
+            transition: all 0.2s;
+        }
+
+        .tool-button:hover {
+            background: #f1f3f4;
+            border-color: #dadce0;
+        }
+
+        .tool-button.active {
+            background: #e8f0fe;
+            color: #1967d2;
+        }
+
+        /* Основная табличная область */
+        .sheet-container {
+            flex-grow: 1;
+            overflow: auto;
+            padding: 20px;
+            position: relative;
+        }
+
+        .sheet-grid {
+            display: inline-grid;
+            grid-template-columns: 50px repeat(10, 120px);
+            grid-template-rows: 32px repeat(20, 32px);
+            background: #fff;
+            border: 2px solid #e0e0e0;
+            box-shadow: 0 1px 3px rgba(0,0,0,0.12);
+        }
+
+        .cell {
+            border: 1px solid #e0e0e0;
+            padding: 4px;
+            font-size: 13px;
+            color: #202124;
+            display: flex;
+            align-items: center;
+            background: #fff;
+        }
+
+        .header-cell {
+            background: #f8f9fa;
+            color: #5f6368;
+            font-weight: 500;
+            justify-content: center;
+        }
+
+        /* Панель вкладок */
+        .sheet-tabs {
+            background: #fff;
+            padding: 8px 16px;
+            border-top: 1px solid #e0e0e0;
+            display: flex;
+            gap: 2px;
+        }
+
+        .sheet-tab {
+            padding: 8px 24px;
+            background: #f8f9fa;
+            border: 1px solid #e0e0e0;
+            border-bottom: none;
+            border-radius: 4px 4px 0 0;
+            cursor: pointer;
+            font-size: 14px;
+            color: #5f6368;
+        }
+
+        .sheet-tab.active {
+            background: #fff;
+            color: #1967d2;
+            border-color: #1967d2;
+            z-index: 1;
+        }
+
+        /* Формула-строка */
+        .formula-bar {
+            display: flex;
+            border-bottom: 1px solid #e0e0e0;
+            padding: 8px 16px;
+            background: #fff;
+        }
+
+        .formula-input {
+            flex-grow: 1;
+            border: 1px solid #dadce0;
+            border-radius: 4px;
+            padding: 6px 12px;
+            font-family: 'Roboto Mono', monospace;
+            font-size: 14px;
+            color: #202124;
+        }
+    </style>
+</head>
+<body>
+    <header class="header">
+        <div class="logo-container">
+            <div class="logo"></div>
+            <div class="file-info">
+                <div class="file-name">Новая таблица</div>
+            </div>
+        </div>
+        
+        <div class="menu-bar">
+            <div class="menu-item">Файл</div>
+            <div class="menu-item">Правка</div>
+            <div class="menu-item">Вид</div>
+            <div class="menu-item">Вставка</div>
+        </div>
+    </header>
+
+    <div class="toolbar">
+        <button class="tool-button">
+            <span class="material-icons-outlined">format_bold</span>
+        </button>
+        <button class="tool-button">
+            <span class="material-icons-outlined">format_italic</span>
+        </button>
+        <button class="tool-button active">
+            <span class="material-icons-outlined">format_align_left</span>
+        </button>
+        <button class="tool-button">
+            <span class="material-icons-outlined">format_color_text</span>
+        </button>
+        <button class="tool-button">
+            <span class="material-icons-outlined">border_all</span>
+        </button>
+    </div>
+
+    <div class="formula-bar">
+        <input type="text" class="formula-input" placeholder="=Введите формулу">
+    </div>
+
+    <div class="sheet-container">
+        <div class="sheet-grid">
+            <!-- Заголовки столбцов -->
+            <div class="cell header-cell"></div>
+            <div class="cell header-cell">A</div>
+            <div class="cell header-cell">B</div>
+            <div class="cell header-cell">C</div>
+            <div class="cell header-cell">D</div>
+            <div class="cell header-cell">E</div>
+            <div class="cell header-cell">F</div>
+            <div class="cell header-cell">G</div>
+            <div class="cell header-cell">H</div>
+            <div class="cell header-cell">I</div>
+            <div class="cell header-cell">J</div>
+
+            <!-- Строки данных -->
+            <div class="cell header-cell">1</div>
+            <div class="cell">Данные 1</div>
+            <div class="cell">=СУММ(A1)</div>
+            <div class="cell"></div>
+            <div class="cell"></div>
+            <div class="cell"></div>
+            <div class="cell"></div>
+            <div class="cell"></div>
+            <div class="cell"></div>
+            <div class="cell"></div>
+            <div class="cell"></div>
+
+            <!-- Дополнительные строки... -->
+        </div>
+    </div>
+
+    <div class="sheet-tabs">
+        <div class="sheet

@@ -1,0 +1,147 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Google Sheets-стиль</title>
+    <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;500&display=swap" rel="stylesheet">
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: 'Roboto', sans-serif;
+        }
+
+        body {
+            background: #f8f9fa;
+            min-height: 100vh;
+            display: flex;
+            flex-direction: column;
+        }
+
+        .header {
+            background: white;
+            padding: 12px 16px;
+            box-shadow: 0 1px 2px rgba(0,0,0,0.1);
+            display: flex;
+            align-items: center;
+            gap: 15px;
+        }
+
+        .logo {
+            font-size: 22px;
+            color: #5f6368;
+            font-weight: 500;
+            white-space: nowrap;
+        }
+
+        .search-container {
+            flex-grow: 1;
+            display: flex;
+            background: #f1f3f4;
+            border-radius: 8px;
+            padding: 8px;
+            align-items: center;
+        }
+
+        .search-input {
+            border: none;
+            background: transparent;
+            padding: 4px 8px;
+            font-size: 16px;
+            width: 100%;
+            outline: none;
+        }
+
+        .icon-button {
+            color: #5f6368;
+            padding: 8px;
+            border-radius: 50%;
+            cursor: pointer;
+            transition: background 0.2s;
+        }
+
+        .icon-button:hover {
+            background: rgba(0,0,0,0.04);
+        }
+
+        .main-content {
+            flex-grow: 1;
+            padding: 24px 16px;
+            max-width: 800px;
+            margin: 0 auto;
+            width: 100%;
+        }
+
+        .content-block {
+            background: white;
+            border-radius: 8px;
+            padding: 20px;
+            box-shadow: 0 1px 2px rgba(0,0,0,0.1);
+            margin-bottom: 20px;
+        }
+
+        .content-title {
+            font-size: 20px;
+            color: #202124;
+            margin-bottom: 16px;
+            font-weight: 500;
+        }
+
+        .content-text {
+            font-size: 16px;
+            color: #3c4043;
+            line-height: 1.5;
+        }
+
+        .footer {
+            background: white;
+            padding: 16px;
+            text-align: center;
+            color: #5f6368;
+            font-size: 14px;
+            border-top: 1px solid #dadce0;
+        }
+    </style>
+</head>
+<body>
+    <header class="header">
+        <div class="logo">Мои Документы</div>
+        <div class="search-container">
+            <input type="text" class="search-input" placeholder="Поиск...">
+            <span class="material-icons">search</span>
+        </div>
+        <div class="icon-button">
+            <span class="material-icons">help_outline</span>
+        </div>
+        <div class="icon-button">
+            <span class="material-icons">account_circle</span>
+        </div>
+    </header>
+
+    <main class="main-content">
+        <div class="content-block">
+            <h1 class="content-title">Добро пожаловать</h1>
+            <p class="content-text">
+                Здесь вы можете создавать новые документы, работать с существующими файлами 
+                и организовывать свою работу в удобном формате.
+            </p>
+        </div>
+        
+        <div class="content-block">
+            <h2 class="content-title">Последние файлы</h2>
+            <p class="content-text">
+                Отчет за май 2024<br>
+                Презентация проекта<br>
+                Финансовый план
+            </p>
+        </div>
+    </main>
+
+    <footer class="footer">
+        © 2024 Мои Документы. Все права защищены.
+    </footer>
+</body>
+</html>

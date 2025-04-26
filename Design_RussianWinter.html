@@ -1,0 +1,159 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Русская Зима</title>
+    <style>
+        body {
+            font-family: 'Arial', sans-serif;
+            background-color: #f0f8ff;
+            color: #1e3a8a;
+            margin: 0;
+            padding: 20px;
+            background-image: linear-gradient(to bottom, #e6f7ff, #f0f8ff);
+        }
+        
+        .container {
+            max-width: 100%;
+            margin: 0 auto;
+            padding: 15px;
+            background-color: rgba(255, 255, 255, 0.9);
+            border-radius: 15px;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+            border: 1px solid #c7e0ff;
+        }
+        
+        h1 {
+            color: #1e3a8a;
+            text-align: center;
+            font-size: 24px;
+            margin-bottom: 20px;
+            text-shadow: 1px 1px 2px rgba(0, 0, 0, 0.1);
+        }
+        
+        label {
+            display: block;
+            margin-bottom: 8px;
+            font-weight: bold;
+            color: #1e3a8a;
+        }
+        
+        input[type="text"], 
+        select, 
+        textarea {
+            width: 100%;
+            padding: 12px;
+            margin-bottom: 15px;
+            border: 1px solid #a8c6ff;
+            border-radius: 8px;
+            box-sizing: border-box;
+            font-size: 16px;
+            background-color: #f8fbff;
+            color: #1e3a8a;
+        }
+        
+        input[type="text"]::placeholder, 
+        textarea::placeholder {
+            color: #7a9ccc;
+            font-style: italic;
+        }
+        
+        button {
+            background-color: #1e3a8a;
+            color: white;
+            padding: 14px 20px;
+            border: none;
+            border-radius: 8px;
+            cursor: pointer;
+            width: 100%;
+            font-size: 16px;
+            font-weight: bold;
+            margin-top: 10px;
+            transition: background-color 0.3s;
+        }
+        
+        button:hover {
+            background-color: #0c2d6b;
+        }
+        
+        .checkbox-group, 
+        .radio-group {
+            margin-bottom: 15px;
+        }
+        
+        .checkbox-item, 
+        .radio-item {
+            margin-bottom: 10px;
+        }
+        
+        .winter-icon {
+            text-align: center;
+            font-size: 40px;
+            margin: 10px 0;
+            color: #1e3a8a;
+        }
+        
+        @media (min-width: 600px) {
+            .container {
+                max-width: 500px;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <div class="winter-icon">❄️</div>
+        <h1>Русская Зима</h1>
+        
+        <label for="name">Ваше имя:</label>
+        <input type="text" id="name" name="name" placeholder="Введите ваше имя">
+        
+        <label for="activity">Любимое зимнее занятие:</label>
+        <select id="activity" name="activity">
+            <option value="" disabled selected>Выберите занятие</option>
+            <option value="ski">Катание на лыжах</option>
+            <option value="skate">Катание на коньках</option>
+            <option value="snowball">Игра в снежки</option>
+            <option value="snowman">Лепка снеговика</option>
+            <option value="sauna">Баня с прорубью</option>
+        </select>
+        
+        <div class="checkbox-group">
+            <label>Что вам нравится в русской зиме?</label>
+            <div class="checkbox-item">
+                <input type="checkbox" id="snow" name="winter_like" value="snow">
+                <label for="snow">Снег</label>
+            </div>
+            <div class="checkbox-item">
+                <input type="checkbox" id="frost" name="winter_like" value="frost">
+                <label for="frost">Мороз</label>
+            </div>
+        </div>
+        
+        <div class="radio-group">
+            <label>Как вы относитесь к русской зиме?</label>
+            <div class="radio-item">
+                <input type="radio" id="love" name="winter_attitude" value="love">
+                <label for="love">Обожаю</label>
+            </div>
+            <div class="radio-item">
+                <input type="radio" id="tolerate" name="winter_attitude" value="tolerate">
+                <label for="tolerate">Терплю</label>
+            </div>
+        </div>
+        
+        <label for="message">Ваши зимние пожелания:</label>
+        <textarea id="message" name="message" rows="4" placeholder="Напишите ваши пожелания к зимнему сезону..."></textarea>
+        
+        <button type="submit">Отправить</button>
+    </div>
+
+    <script>
+        // Обработка формы
+        document.querySelector('button').addEventListener('click', function() {
+            alert('Спасибо за ваши зимние предпочтения! ❄️');
+        });
+    </script>
+</body>
+</html>
