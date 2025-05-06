@@ -1,0 +1,232 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>macOS-приложение</title>
+    <style>
+        :root {
+            --macos-blue: #0071e3;
+            --macos-gray: #f5f5f7;
+            --macos-dark-gray: #d2d2d7;
+            --macos-text: #1d1d1f;
+            --macos-light-text: #86868b;
+            --macos-border: #e0e0e0;
+        }
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
+        }
+
+        body {
+            background-color: var(--macos-gray);
+            color: var(--macos-text);
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            min-height: 100vh;
+            padding: 20px;
+        }
+
+        .macos-window {
+            width: 100%;
+            max-width: 600px;
+            background: white;
+            border-radius: 10px;
+            box-shadow: 0 10px 25px rgba(0, 0, 0, 0.1);
+            overflow: hidden;
+            border: 1px solid var(--macos-border);
+        }
+
+        .macos-header {
+            height: 40px;
+            background: linear-gradient(to bottom, #f8f8f8, #e8e8e8);
+            border-bottom: 1px solid var(--macos-border);
+            display: flex;
+            align-items: center;
+            padding: 0 15px;
+            position: relative;
+        }
+
+        .macos-buttons {
+            display: flex;
+            gap: 8px;
+            position: absolute;
+            left: 15px;
+        }
+
+        .macos-button {
+            width: 12px;
+            height: 12px;
+            border-radius: 50%;
+        }
+
+        .macos-button-close {
+            background: #ff5f56;
+        }
+
+        .macos-button-minimize {
+            background: #ffbd2e;
+        }
+
+        .macos-button-maximize {
+            background: #27c93f;
+        }
+
+        .macos-title {
+            flex: 1;
+            text-align: center;
+            font-size: 14px;
+            font-weight: 500;
+        }
+
+        .macos-content {
+            padding: 25px;
+        }
+
+        .form-group {
+            margin-bottom: 20px;
+        }
+
+        label {
+            display: block;
+            margin-bottom: 8px;
+            font-size: 14px;
+            color: var(--macos-text);
+        }
+
+        input[type="text"],
+        select {
+            width: 100%;
+            padding: 10px 12px;
+            border: 1px solid var(--macos-border);
+            border-radius: 6px;
+            font-size: 14px;
+            background-color: white;
+            transition: border 0.2s, box-shadow 0.2s;
+        }
+
+        input[type="text"]:focus,
+        select:focus {
+            outline: none;
+            border-color: var(--macos-blue);
+            box-shadow: 0 0 0 3px rgba(0, 125, 250, 0.1);
+        }
+
+        .macos-button-primary {
+            background-color: var(--macos-blue);
+            color: white;
+            border: none;
+            border-radius: 6px;
+            padding: 10px 20px;
+            font-size: 14px;
+            font-weight: 500;
+            cursor: pointer;
+            transition: background-color 0.2s, transform 0.1s;
+        }
+
+        .macos-button-primary:hover {
+            background-color: #0066cc;
+        }
+
+        .macos-button-primary:active {
+            transform: scale(0.98);
+        }
+
+        .checkbox-group,
+        .radio-group {
+            display: flex;
+            align-items: center;
+            margin-bottom: 15px;
+        }
+
+        input[type="checkbox"],
+        input[type="radio"] {
+            margin-right: 10px;
+            accent-color: var(--macos-blue);
+        }
+
+        .macos-footer {
+            padding: 15px 25px;
+            border-top: 1px solid var(--macos-border);
+            background-color: var(--macos-gray);
+            font-size: 12px;
+            color: var(--macos-light-text);
+            text-align: center;
+        }
+
+        .radio-options {
+            display: flex;
+            gap: 20px;
+        }
+
+        .radio-option {
+            display: flex;
+            align-items: center;
+        }
+    </style>
+</head>
+<body>
+    <div class="macos-window">
+        <div class="macos-header">
+            <div class="macos-buttons">
+                <div class="macos-button macos-button-close"></div>
+                <div class="macos-button macos-button-minimize"></div>
+                <div class="macos-button macos-button-maximize"></div>
+            </div>
+            <div class="macos-title">Форма приложения</div>
+        </div>
+
+        <div class="macos-content">
+            <form>
+                <div class="form-group">
+                    <label for="username">Имя пользователя</label>
+                    <input type="text" id="username" placeholder="Введите ваше имя">
+                </div>
+
+                <div class="form-group">
+                    <label for="language">Язык</label>
+                    <select id="language">
+                        <option value="">Выберите язык</option>
+                        <option value="ru">Русский</option>
+                        <option value="en">Английский</option>
+                        <option value="de">Немецкий</option>
+                        <option value="fr">Французский</option>
+                    </select>
+                </div>
+
+                <div class="form-group">
+                    <label>Настройки</label>
+                    <div class="checkbox-group">
+                        <input type="checkbox" id="notifications">
+                        <label for="notifications">Получать уведомления</label>
+                    </div>
+
+                    <div class="radio-group">
+                        <label>Режим работы:</label>
+                        <div class="radio-options">
+                            <div class="radio-option">
+                                <input type="radio" id="mode1" name="mode" value="basic" checked>
+                                <label for="mode1">Базовый</label>
+                            </div>
+                            <div class="radio-option">
+                                <input type="radio" id="mode2" name="mode" value="advanced">
+                                <label for="mode2">Продвинутый</label>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <button type="button" class="macos-button-primary">Сохранить настройки</button>
+            </form>
+        </div>
+
+        <div class="macos-footer">
+            © 2023 macOS-приложение. Все права защищены.
+        </div>
+    </div>
+</body>
+</html>
