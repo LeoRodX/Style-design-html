@@ -1,0 +1,212 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Демо: Озвучивание текста</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #f5f5f5;
+            margin: 0;
+            padding: 20px;
+        }
+        .container {
+            max-width: 800px;
+            margin: 0 auto;
+            background: white;
+            padding: 30px;
+            border-radius: 8px;
+            box-shadow: 0 2px 10px rgba(0,0,0,0.1);
+        }
+        h1 {
+            color: #333;
+            text-align: center;
+            margin-bottom: 30px;
+        }
+        .form-group {
+            margin-bottom: 20px;
+        }
+        label {
+            display: block;
+            margin-bottom: 5px;
+            font-weight: bold;
+        }
+        .form-control {
+            width: 100%;
+            padding: 10px;
+            border: 1px solid #ddd;
+            border-radius: 4px;
+            font-size: 16px;
+            box-sizing: border-box;
+        }
+        textarea.form-control {
+            min-height: 120px;
+            resize: vertical;
+        }
+        .btn {
+            background-color: #4CAF50;
+            color: white;
+            border: none;
+            padding: 12px 20px;
+            border-radius: 4px;
+            cursor: pointer;
+            font-size: 16px;
+            display: block;
+            width: 100%;
+            transition: background-color 0.3s;
+        }
+        .btn:hover {
+            background-color: #45a049;
+        }
+        .audio-player {
+            margin-top: 30px;
+            background: #f9f9f9;
+            padding: 20px;
+            border-radius: 4px;
+            border: 1px solid #eee;
+        }
+        .gen-time {
+            margin-top: 10px;
+            text-align: center;
+            color: #666;
+            font-size: 14px;
+        }
+        .voice-preview {
+            display: flex;
+            justify-content: space-between;
+            margin: 20px 0;
+            gap: 10px;
+        }
+        .voice-card {
+            flex: 1;
+            padding: 15px 10px;
+            border: 1px solid #ddd;
+            border-radius: 4px;
+            text-align: center;
+            cursor: pointer;
+            transition: all 0.3s;
+        }
+        .voice-card:hover {
+            background-color: #f0f0f0;
+            transform: translateY(-2px);
+        }
+        .voice-card.selected {
+            border-color: #4CAF50;
+            background-color: #e8f5e9;
+            box-shadow: 0 2px 5px rgba(76, 175, 80, 0.2);
+        }
+        .status-message {
+            padding: 15px;
+            border-radius: 4px;
+            margin-bottom: 20px;
+            text-align: center;
+        }
+        .error {
+            background-color: #fde0e0;
+            border: 1px solid #f5c6cb;
+            color: #d32f2f;
+        }
+        .success {
+            background-color: #e8f5e9;
+            border: 1px solid #c8e6c9;
+            color: #2e7d32;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h1>Демонстрация интерфейса озвучивания текста</h1>
+        
+        <!-- Пример сообщения об ошибке (можно удалить) -->
+        <div class="status-message error" style="display: none;">
+            Введите текст для озвучивания
+        </div>
+        
+        <!-- Пример сообщения об успехе (можно удалить) -->
+        <div class="status-message success" style="display: none;">
+            Текст успешно озвучен! Время генерации: 3.42 сек
+        </div>
+        
+        <form>
+            <div class="form-group">
+                <label for="voice">Выберите голос:</label>
+                <select name="voice" id="voice" class="form-control">
+                    <option value="Русский мужской" selected>Русский мужской</option>
+                    <option value="Русский женский">Русский женский</option>
+                    <option value="Английский мужской">Английский мужской</option>
+                    <option value="Английский женский">Английский женский</option>
+                </select>
+            </div>
+            
+            <div class="voice-preview">
+                <div class="voice-card selected" onclick="selectVoice('Русский мужской')">
+                    <div>Русский мужской</div>
+                </div>
+                <div class="voice-card" onclick="selectVoice('Русский женский')">
+                    <div>Русский женский</div>
+                </div>
+                <div class="voice-card" onclick="selectVoice('Английский мужской')">
+                    <div>Английский мужской</div>
+                </div>
+                <div class="voice-card" onclick="selectVoice('Английский женский')">
+                    <div>Английский женский</div>
+                </div>
+            </div>
+            
+            <div class="form-group">
+                <label for="text">Введите текст:</label>
+                <textarea name="text" id="text" class="form-control" rows="5" required>Это демонстрационный текст для показа интерфейса. В реальном приложении здесь будет ваш текст для озвучивания.</textarea>
+            </div>
+            
+            <button type="button" class="btn" onclick="simulateGeneration()">Озвучить</button>
+            
+            <div class="gen-time" style="display: none;">Время генерации: 3.42 сек</div>
+        </form>
+        
+        <!-- Демо аудио-плеера (можно удалить) -->
+        <div class="audio-player" style="display: none;">
+            <audio controls>
+                <source src="#" type="audio/wav">
+                Ваш браузер не поддерживает аудио элемент.
+            </audio>
+        </div>
+    </div>
+
+    <script>
+        // Демонстрационные функции для интерактивности
+        function selectVoice(voice) {
+            document.getElementById('voice').value = voice;
+            
+            // Обновляем визуальное выделение карточек
+            document.querySelectorAll('.voice-card').forEach(card => {
+                if (card.textContent.trim() === voice) {
+                    card.classList.add('selected');
+                } else {
+                    card.classList.remove('selected');
+                }
+            });
+        }
+        
+        function simulateGeneration() {
+            // Показываем сообщение об успехе
+            document.querySelector('.status-message.success').style.display = 'block';
+            document.querySelector('.status-message.error').style.display = 'none';
+            
+            // Показываем время генерации
+            document.querySelector('.gen-time').style.display = 'block';
+            
+            // Показываем аудио-плеер
+            document.querySelector('.audio-player').style.display = 'block';
+            
+            // Прокручиваем страницу к плееру
+            document.querySelector('.audio-player').scrollIntoView({ behavior: 'smooth' });
+        }
+        
+        // Инициализация
+        document.addEventListener('DOMContentLoaded', function() {
+            // Можно добавить дополнительную инициализацию при необходимости
+        });
+    </script>
+</body>
+</html>
