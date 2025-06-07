@@ -1,0 +1,126 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Демо приложение с кнопкой информации</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 20px;
+            position: relative;
+        }
+        
+        .info-button {
+            position: fixed;
+            top: 20px;
+            right: 20px;
+            width: 40px;
+            height: 40px;
+            border-radius: 50%;
+            background-color: #4285f4;
+            color: white;
+            border: none;
+            font-size: 20px;
+            cursor: pointer;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            box-shadow: 0 2px 5px rgba(0,0,0,0.2);
+            transition: all 0.3s ease;
+        }
+        
+        .info-button:hover {
+            background-color: #3367d6;
+            transform: scale(1.1);
+        }
+        
+        .info-panel {
+            position: fixed;
+            top: 70px;
+            right: 20px;
+            width: 300px;
+            padding: 20px;
+            background-color: white;
+            border-radius: 8px;
+            box-shadow: 0 4px 12px rgba(0,0,0,0.15);
+            display: none;
+            z-index: 100;
+        }
+        
+        .info-panel h3 {
+            margin-top: 0;
+            color: #4285f4;
+        }
+        
+        .info-panel p {
+            margin-bottom: 10px;
+            line-height: 1.5;
+        }
+        
+        .close-button {
+            background-color: #f1f1f1;
+            border: none;
+            padding: 5px 10px;
+            border-radius: 4px;
+            cursor: pointer;
+            float: right;
+        }
+        
+        .overlay {
+            position: fixed;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background-color: rgba(0,0,0,0.2);
+            display: none;
+            z-index: 50;
+        }
+    </style>
+</head>
+<body>
+    <h1>Мое веб-приложение</h1>
+    <p>Это демонстрация работы круглой кнопки "?" с информацией о программе.</p>
+    
+    <button class="info-button" id="infoButton">?</button>
+    
+    <div class="overlay" id="overlay"></div>
+    
+    <div class="info-panel" id="infoPanel">
+        <button class="close-button" id="closeButton">×</button>
+        <h3>О программе</h3>
+        <p><strong>Название:</strong> Демо приложение</p>
+        <p><strong>Версия:</strong> 1.0.0</p>
+        <p><strong>Описание:</strong> Это демонстрационное приложение показывает работу круглой кнопки информации в правом верхнем углу экрана.</p>
+        <p><strong>Автор:</strong> Ваше имя</p>
+        <p><strong>Дата:</strong> 2023</p>
+    </div>
+    
+    <script>
+        const infoButton = document.getElementById('infoButton');
+        const infoPanel = document.getElementById('infoPanel');
+        const overlay = document.getElementById('overlay');
+        const closeButton = document.getElementById('closeButton');
+        
+        // Показать панель информации
+        infoButton.addEventListener('click', () => {
+            infoPanel.style.display = 'block';
+            overlay.style.display = 'block';
+        });
+        
+        // Скрыть панель информации при клике на крестик
+        closeButton.addEventListener('click', () => {
+            infoPanel.style.display = 'none';
+            overlay.style.display = 'none';
+        });
+        
+        // Скрыть панель информации при клике вне панели
+        overlay.addEventListener('click', () => {
+            infoPanel.style.display = 'none';
+            overlay.style.display = 'none';
+        });
+    </script>
+</body>
+</html>
